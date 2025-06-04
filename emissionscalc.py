@@ -1,6 +1,5 @@
 import streamlit as st
 
-# Page config
 st.set_page_config(
     page_title="Safety-Kleen Product Emissions Calculator",
     layout="wide",
