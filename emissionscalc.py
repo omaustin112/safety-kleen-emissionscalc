@@ -12,9 +12,25 @@ st.markdown("""
         .stApp {
             background-color: #f5f7fa;
             font-family: 'Arial', sans-serif;
+            padding: 2rem;
         }
-        h1 {
+        h1, h2, h3 {
             color: #004b87;
+        }
+        .block-container {
+            padding: 2rem 3rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .css-1v0mbdj p {
+            font-size: 16px;
+        }
+        .stDownloadButton > button {
+            background-color: #004b87;
+            color: white;
+            border-radius: 8px;
+            font-weight: bold;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -141,5 +157,5 @@ st.download_button(
 )
 
 st.markdown("---")
-st.markdown("🔗 [Visit Safety-Kleen](https://www.safety-kleen.com)", unsafe_allow_html=True)
+st.markdown("🚛 **Want to learn more about closed-loop sustainability?** [Visit Safety-Kleen](https://www.safety-kleen.com)", unsafe_allow_html=True)
 
