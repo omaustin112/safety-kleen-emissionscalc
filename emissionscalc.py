@@ -6,20 +6,6 @@ st.set_page_config(
     layout="wide",
 )
 
-from PIL import Image
-
-st.markdown("""
-    <style>
-        .logo {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 130px;
-        }
-    </style>
-    <img class="logo" src="https://store.safety-kleen.com/media/logo/websites/1/sk_achc_logo.png" />
-""", unsafe_allow_html=True)
-
 # Custom styles
 st.markdown("""
     <style>
