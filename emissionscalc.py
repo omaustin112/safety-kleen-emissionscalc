@@ -38,45 +38,49 @@ st.markdown("""
 # Emissions data (kg CO2e per gallon)
 emissions_data = {
     "Industrial Fluids": {
-        "Extreme Pressure Gear Oil (MD)": (3.4, 1.5),
-        "Extreme Pressure Gear Oils (EHV)": (3.5, 1.6),
-        "Extreme Pressure Gear Oils (HV)": (3.5, 1.6),
-        "ISO Way Oils": (3.3, 1.4)
+        "Extreme Pressure Gear Oil (MD)": (10.7, 2.78),
+        "Extreme Pressure Gear Oils (EHV)": (10.7, 2.78),
+        "Extreme Pressure Gear Oils (HV)": (11, 3.5),
+        "ISO Way Oils": (12.84, 2.78)
     },
     "Base Oils": {
-        "Kleen+ RHT70 Base Oil": (3.6, 1.7),
-        "Kleen+ RHT120 Base Oil": (3.6, 1.7),
-        "Kleen+ RHT240 Base Oil": (3.6, 1.7)
+        "Kleen+ RHT70 Base Oil": (12.84, 2.78),
+        "Kleen+ RHT120 Base Oil": (12.84, 2.78),
+        "Kleen+ RHT240 Base Oil": (12.84, 2.78)
     },
     "Motor Oils": {
-        "Synthetic Blend Motor Oil": (3.4, 1.5),
-        "Full Synthetic (SP/GF-6A) Motor Oil": (3.5, 1.6),
-        "Full Synthetic (SP/GF-6B) Motor Oil": (3.5, 1.6),
-        "Full Synthetic DEXOS1 Gen 3 Motor Oil": (3.5, 1.6),
-        "Fully Synthetic Euro Spec Motor Oil": (3.5, 1.6),
-        "Heavy Duty CK-4 Engine Oil": (3.4, 1.5),
-        "Synthetic Blend Heavy Duty CK-4 Engine Oil": (3.4, 1.5),
-        "Full Synthetic Heavy Duty CK-4 Engine Oil": (3.5, 1.6),
-        "Natural Gas Engine Oil NGP-3": (3.4, 1.5)
+        "Synthetic Blend Motor Oil": (12.84, 2.78),
+        "Full Synthetic (SP/GF-6A) Motor Oil": (13.4, 1.6),
+        "Full Synthetic (SP/GF-6B) Motor Oil": (13.4, 1.6),
+        "Full Synthetic DEXOS1 Gen 3 Motor Oil": (13.4, 1.6),
+        "Fully Synthetic Euro Spec Motor Oil": (13.4, 1.6),
+        "Heavy Duty CK-4 Engine Oil": (12.8, 1.5),
+        "Synthetic Blend Heavy Duty CK-4 Engine Oil": (13.2, 1.5),
+        "Full Synthetic Heavy Duty CK-4 Engine Oil": (14, 1.6),
+        "Natural Gas Engine Oil NGP-3": (13.8, 1.5)
     },
     "Driveline Fluids": {
-        "Automatic Transmission Fluid (Dexron III/ Mercon)": (3.2, 1.4),
-        "Full Synthetic Multi-Vehicle ATP": (3.4, 1.5),
-        "Full Synthetic Heavy Duty SYN SSE": (3.5, 1.6),
-        "Full Synthetic Heavy-Duty SYN EATON PS-386": (3.5, 1.6),
-        "Full Synthetic Heavy Duty ATF (Allison TES-295 & TES-389)": (3.6, 1.7),
-        "Full Synthetic Heavy Duty ATF (SAE 50)": (3.6, 1.7)
+        "Automatic Transmission Fluid (Dexron III/ Mercon)": (12.8, 1.4),
+        "Full Synthetic Multi-Vehicle ATP": (13, 1.5),
+        "Full Synthetic Heavy Duty SYN SSE": (13.5, 1.6),
+        "Full Synthetic Heavy-Duty SYN EATON PS-386": (13.5, 1.6),
+        "Full Synthetic Heavy Duty ATF (Allison TES-295 & TES-389)": (13.7, 1.7),
+        "Full Synthetic Heavy Duty ATF (SAE 50)": (13.7, 1.7)
+    },
+     "Gear Oils": {
+        "Conventional": (12.8, 1.5),
+        "Full Synthetic": (14, 2),
     },
     "Greases": {
-        "All Purpose Lithium (NLGI 1)": (2.8, 1.3),
-        "All Purpose Lithium (NLGI 2)": (2.8, 1.3),
-        "High Temp Lithium (NLGI 1)": (2.9, 1.4),
-        "High Temp Lithium (NLGI 2)": (2.9, 1.4),
-        "Moly Supreme (NLGI 1)": (3.0, 1.4),
-        "Moly Supreme (NLGI 2)": (3.0, 1.4),
-        "Construction Red (NLGI 1)": (3.1, 1.5),
-        "Construction Red (NLGI 2)": (3.1, 1.5),
-        "Ultra Calcium Sulfonate (NLGI 2)": (3.2, 1.6)
+        "All Purpose Lithium (NLGI 1)": (13, 2),
+        "All Purpose Lithium (NLGI 2)": (13, 2),
+        "High Temp Lithium (NLGI 1)": (13.5, 2.1),
+        "High Temp Lithium (NLGI 2)": (13.5, 2.1),
+        "Moly Supreme (NLGI 1)": (14, 2.2),
+        "Moly Supreme (NLGI 2)": (14, 2.2),
+        "Construction Red (NLGI 1)": (14.5, 2.3),
+        "Construction Red (NLGI 2)": (14.5, 2.3),
+        "Ultra Calcium Sulfonate (NLGI 2)": (15, 2.5)
     }
 }
 
