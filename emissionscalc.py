@@ -84,15 +84,62 @@ emissions_data = {
     }
 }
 
+# Volume options by product
+product_volumes = {
+    # Industrial Fluids
+    "Extreme Pressure Gear Oil (MD)": ["5G Pail", "55G Drum", "330G Tote", "Bulk"],
+    "Extreme Pressure Gear Oils (EHV)": ["55G Drum", "330G Tote", "Bulk"],
+    "Extreme Pressure Gear Oils (HV)": ["55G Drum", "330G Tote", "Bulk"],
+    "ISO Way Oils": ["5G Pail", "55G Drum", "330G Tote", "Bulk"],
+    # Base Oils
+    "Kleen+ RHT70 Base Oil": [],
+    "Kleen+ RHT120 Base Oil": [],
+    "Kleen+ RHT240 Base Oil": [],
+    # Motor Oils
+    "Synthetic Blend Motor Oil": ["12x1 Qt. Case", "4x5 Qt. Case", "55G Drum", "330G Tote", "Bulk"],
+    "Full Synthetic (SP/GF-6A) Motor Oil": ["12x1 Qt. Case", "4x5 Qt. Case", "55G Drum", "330G Tote", "Bulk"],
+    "Full Synthetic (SP/GF-6B) Motor Oil": ["55G Drum", "330G Tote", "Bulk"],
+    "Full Synthetic DEXOS1 Gen 3 Motor Oil": ["12x1 Qt. Case", "4x5 Qt. Case", "55G Drum", "330G Tote", "Bulk"],
+    "Fully Synthetic Euro Spec Motor Oil": ["55G Drum", "330G Tote", "Bulk"],
+    "Heavy Duty CK-4 Engine Oil": ["4x1G Case", "5G Pail", "55G Drum", "330G Tote", "Bulk"],
+    "Synthetic Blend Heavy Duty CK-4 Engine Oil": ["55G Drum", "330G Tote", "Bulk"],
+    "Full Synthetic Heavy Duty CK-4 Engine Oil": ["4x1G Case", "5G Pail", "55G Drum", "330G Tote", "Bulk"],
+    "Natural Gas Engine Oil NGP-3": ["55G Drum", "330G Tote", "Bulk"],
+    # Driveline Fluids
+    "Automatic Transmission Fluid (Dexron III/ Mercon)": ["12x1 Qt. Case", "55G Drum", "330G Tote", "Bulk"],
+    "Full Synthetic Multi-Vehicle ATP": ["12x1 Qt. Case", "4x5 Qt. Case", "55G Drum", "330G Tote", "Bulk"],
+    "Full Synthetic Heavy Duty SYN SSE": ["5G Pail", "55G Drum", "275G Tote", "Bulk"],
+    "Full Synthetic Heavy-Duty SYN EATON PS-386": ["5G Pail", "55G Drum", "275G Tote", "Bulk"],
+    "Full Synthetic Heavy Duty ATF (Allison TES-295 & TES-389)": ["5G Pail", "55G Drum", "330G Tote", "Bulk"],
+    "Full Synthetic Heavy Duty ATF (SAE 50)": ["5G Pail", "16G Keg", "330G Tote", "Bulk"],
+    # Gear Oils
+    "Conventional": ["5G Pail", "16G Keg", "55G Drum", "330G Tote", "Bulk"],
+    "Full Synthetic": ["5G Pail", "16G Keg", "55G Drum", "330G Tote", "Bulk"],
+    # Greases
+    "All Purpose Lithium (NLGI 1)": ["10 x 14 oz Case", "35lb Pail", "120lb Keg", "400lb Drum"],
+    "All Purpose Lithium (NLGI 2)": ["10 x 14 oz Case", "35lb Pail", "120lb Keg", "400lb Drum"],
+    "High Temp Lithium (NLGI 1)": ["10 x 14 oz Case", "35lb Pail", "120lb Keg", "400lb Drum"],
+    "High Temp Lithium (NLGI 2)": ["10 x 14 oz Case", "35lb Pail", "120lb Keg", "400lb Drum"],
+    "Moly Supreme (NLGI 1)": ["10 x 14 oz Case", "35lb Pail", "120lb Keg", "400lb Drum"],
+    "Moly Supreme (NLGI 2)": ["10 x 14 oz Case", "35lb Pail", "120lb Keg", "400lb Drum"],
+    "Construction Red (NLGI 1)": ["10 x 14 oz Case", "35lb Pail", "120lb Keg", "400lb Drum"],
+    "Construction Red (NLGI 2)": ["10 x 14 oz Case", "35lb Pail", "120lb Keg", "400lb Drum"],
+    "Ultra Calcium Sulfonate (NLGI 2)": ["10 x 14 oz Case", "35lb Pail", "120lb Keg", "400lb Drum"],
+}
+
 volume_conversion = {
-    "Quart": 0.25,
-    "Gallon": 1,
-    "Drum (55G)": 55,
-    "Tote (330G)": 330,
-    "10 x 14 oz Case": 1.09375,
+    "12x1 Qt. Case": 3,
+    "4x5 Qt. Case": 5,
+    "5G Pail": 5,
+    "16G Keg": 16,
     "35lb Pail": 4.375,
+    "55G Drum": 55,
     "120lb Keg": 15,
-    "400lb Drum": 50
+    "275G Tote": 275,
+    "330G Tote": 330,
+    "400lb Drum": 50,
+    "Bulk": 1,  # Bulk assumed 1 gallon per unit; handle accordingly if different
+    "10 x 14 oz Case": 1.09375,
 }
 
 # App UI
@@ -105,61 +152,71 @@ with col1:
 with col2:
     product = st.selectbox("Product:", list(emissions_data[category].keys()))
 
-# Volume selection
+# Get volume options for selected product, fallback to empty list if not found
+available_volumes = product_volumes.get(product, [])
+
+# Volume selection with dynamic filtering
 col3, col4 = st.columns(2)
 with col3:
-    volume_type = st.selectbox(
-        "Select volume:",
-        list(volume_conversion.keys()),
-        help="Example: Drum (55G) means a 55-gallon drum"
-    )
+    if available_volumes:
+        volume_type = st.selectbox(
+            "Select volume:",
+            available_volumes,
+            help="Select the volume offered for the product"
+        )
+    else:
+        st.write("No volume options available for this product.")
+        volume_type = None
 with col4:
     volume_count = st.number_input("Number of units:", min_value=0.0, value=1.0)
 
 is_loop = st.radio("Are you using Safety-Kleen closed-loop system?", ("Yes", "No"))
 
-# Emissions calculations
-virgin_emission, loop_emission = emissions_data[category][product]
-total_gallons = volume_conversion[volume_type] * volume_count
+if volume_type:
+    # Emissions calculations
+    virgin_emission, loop_emission = emissions_data[category][product]
+    total_gallons = volume_conversion.get(volume_type, 1) * volume_count
 
-virgin_emissions = virgin_emission * total_gallons
-loop_emissions = loop_emission * total_gallons
-co2_saved = virgin_emissions - loop_emissions
+    virgin_emissions = virgin_emission * total_gallons
+    loop_emissions = loop_emission * total_gallons
+    co2_saved = virgin_emissions - loop_emissions
 
-total_emissions = loop_emissions if is_loop == "Yes" else virgin_emissions
+    total_emissions = loop_emissions if is_loop == "Yes" else virgin_emissions
 
-# Output results
-st.subheader("Results")
-st.write(f"**Product:** {product}")
-st.write(f"**Volume:** {total_gallons:.2f} gallons")
-st.write(f"**System Used:** {'Safety-Kleen LOOP' if is_loop == 'Yes' else 'Virgin Oil'}")
+    # Output results
+    st.subheader("Results")
+    st.write(f"**Product:** {product}")
+    st.write(f"**Volume:** {total_gallons:.2f} gallons")
+    st.write(f"**System Used:** {'Safety-Kleen LOOP' if is_loop == 'Yes' else 'Virgin Oil'}")
 
-if is_loop == "Yes":
-    st.markdown(f"<h2 style='color:green; font-size:28px;'>Estimated CO₂ Emissions: {total_emissions:.2f} kg CO₂</h2>", unsafe_allow_html=True)
-    st.success(f"You saved approximately {co2_saved:.2f} kg CO₂ by using the Safety-Kleen LOOP system.")
-else:
-    st.markdown(f"<h2 style='color:red; font-size:28px;'>Estimated CO₂ Emissions: {total_emissions:.2f} kg CO₂</h2>", unsafe_allow_html=True)
-    st.info(f"Using Safety-Kleen's LOOP system, you could have saved {co2_saved:.2f} kg CO₂.")
+    if is_loop == "Yes":
+        st.markdown(f"<h2 style='color:green; font-size:28px;'>Estimated CO₂ Emissions: {total_emissions:.2f} kg CO₂</h2>", unsafe_allow_html=True)
+        st.success(f"You saved approximately {co2_saved:.2f} kg CO₂ by using the Safety-Kleen LOOP system.")
+    else:
+        st.markdown(f"<h2 style='color:red; font-size:28px;'>Estimated CO₂ Emissions: {total_emissions:.2f} kg CO₂</h2>", unsafe_allow_html=True)
+        st.info(f"Using Safety-Kleen's LOOP system, you could have saved {co2_saved:.2f} kg CO₂.")
 
-# Virgin oil baseline reminder
-if is_loop=="Yes":
-    st.write("\n")
-    st.markdown(f"<h4>Compared to virgin crude oil emissions:</h4>", unsafe_allow_html=True)
-    st.write(f"Using {total_gallons:.2f} gallons of {product} with virgin oil would generate approximately {virgin_emissions:.2f} kg CO₂.")
+    # Virgin oil baseline reminder
+    if is_loop=="Yes":
+        st.write("\n")
+        st.markdown(f"<h4>Compared to virgin crude oil emissions:</h4>", unsafe_allow_html=True)
+        st.write(f"Using {total_gallons:.2f} gallons of {product} with virgin oil would generate approximately {virgin_emissions:.2f} kg CO₂.")
 
-# Downloadable summary
-summary = f"""Product: {product}
+    # Downloadable summary
+    summary = f"""Product: {product}
 Volume: {total_gallons:.2f} gallons
 System Used: {is_loop}
 Emissions: {total_emissions:.2f} kg CO₂
 CO₂ Saved: {co2_saved:.2f} kg
 """
-st.download_button(
-    label="📥 Download results as .txt",
-    data=summary,
-    file_name="safety-kleen_emissions_summary.txt"
-)
+    st.download_button(
+        label="📥 Download results as .txt",
+        data=summary,
+        file_name="safety-kleen_emissions_summary.txt"
+    )
+
+else:
+    st.warning("Please select a volume option to calculate emissions.")
 
 st.markdown("---")
 st.markdown("🚛 **Want to learn more about closed-loop sustainability?** [Visit Safety-Kleen](https://www.safety-kleen.com)", unsafe_allow_html=True)
-
