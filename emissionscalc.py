@@ -92,9 +92,9 @@ product_volumes = {
     "Extreme Pressure Gear Oils (HV)": ["55G Drum", "330G Tote", "Bulk"],
     "ISO Way Oils": ["5G Pail", "55G Drum", "330G Tote", "Bulk"],
     # Base Oils
-    "Kleen+ RHT70 Base Oil": [],
-    "Kleen+ RHT120 Base Oil": [],
-    "Kleen+ RHT240 Base Oil": [],
+    "Kleen+ RHT70 Base Oil": ["Gallon"],
+    "Kleen+ RHT120 Base Oil": ["Gallon"],
+    "Kleen+ RHT240 Base Oil": ["Gallon"],
     # Motor Oils
     "Synthetic Blend Motor Oil": ["12x1 Qt. Case", "4x5 Qt. Case", "55G Drum", "330G Tote", "Bulk"],
     "Full Synthetic (SP/GF-6A) Motor Oil": ["12x1 Qt. Case", "4x5 Qt. Case", "55G Drum", "330G Tote", "Bulk"],
