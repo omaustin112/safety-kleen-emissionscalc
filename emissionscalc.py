@@ -137,7 +137,7 @@ product_volumes = {
     "HD Extended Life NMOAT": ["55G Drum", "Bulk"],
     "LD Extended Life NAPS Free OAT": ["55G Drum", "Bulk"],
     "LD/HD Conventional": ["55G Drum", "Bulk"],
-    "LD/HD Extended Service Interval HOAT": ["55G Drum", "Bulk'],
+    "LD/HD Extended Service Interval HOAT": ["55G Drum", "Bulk"],
     "LD Extended Life 2-EH OAT": ["55G Drum", "Bulk"],
 }
 
