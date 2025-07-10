@@ -79,7 +79,15 @@ emissions_data = {
         "Moly Supreme (NLGI 2)": (14, 2.2),
         "Construction Red (NLGI 1)": (14.5, 2.3),
         "Construction Red (NLGI 2)": (14.5, 2.3),
-        "Ultra Calcium Sulfonate (NLGI 2)": (15, 2.5)
+        "Ultra Calcium Sulfonate (NLGI 2)": (15, 2.5),
+    },
+    "Antifreeze & Coolants": {
+        "HD Extended Life NAPS Free OAT": (7.2512, 5.514),
+        "HD Extended Life NMOAT": (7.246, 5.512),
+        "LD Extended Life NAPS Free OAT": (7.2512, 5.514),
+        "LD/HD Conventional": (7.2537, 5.516),
+        "LD/HD Extended Service Interval HOAT": (7.2512, 5.514),
+        "LD Extended Life 2-EH OAT": (7.2512, 5.514)
     }
 }
 
@@ -124,6 +132,13 @@ product_volumes = {
     "Construction Red (NLGI 1)": ["10 x 14 oz Case", "35lb Pail", "120lb Keg", "400lb Drum"],
     "Construction Red (NLGI 2)": ["10 x 14 oz Case", "35lb Pail", "120lb Keg", "400lb Drum"],
     "Ultra Calcium Sulfonate (NLGI 2)": ["10 x 14 oz Case", "35lb Pail", "120lb Keg", "400lb Drum"],
+    # Antifreeze & Coolants
+    "HD Extended Life NAPS Free OAT": [55G Drum, Bulk],
+    "HD Extended Life NMOAT": [55G Drum, Bulk],
+    "LD Extended Life NAPS Free OAT": [55G Drum, Bulk],
+     "LD/HD Conventional": [55G Drum, Bulk],
+     "LD/HD Extended Service Interval HOAT": [55G Drum, Bulk],
+     "LD Extended Life 2-EH OAT": [55G Drum, Bulk],
 }
 
 volume_conversion = {
