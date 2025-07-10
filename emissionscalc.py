@@ -133,12 +133,13 @@ product_volumes = {
     "Construction Red (NLGI 2)": ["10 x 14 oz Case", "35lb Pail", "120lb Keg", "400lb Drum"],
     "Ultra Calcium Sulfonate (NLGI 2)": ["10 x 14 oz Case", "35lb Pail", "120lb Keg", "400lb Drum"],
     # Antifreeze & Coolants
-    "HD Extended Life NAPS Free OAT": [55G Drum, Bulk],
-    "HD Extended Life NMOAT": [55G Drum, Bulk],
-    "LD Extended Life NAPS Free OAT": [55G Drum, Bulk],
-     "LD/HD Conventional": [55G Drum, Bulk],
-     "LD/HD Extended Service Interval HOAT": [55G Drum, Bulk],
-     "LD Extended Life 2-EH OAT": [55G Drum, Bulk],
+    "HD Extended Life NAPS Free OAT": ["55G Drum", "Bulk"],
+    "HD Extended Life NMOAT": ["55G Drum", "Bulk"],
+    "LD Extended Life NAPS Free OAT": ["55G Drum", "Bulk"],
+    "LD/HD Conventional": ["55G Drum", "Bulk"],
+    "LD/HD Extended Service Interval HOAT": ["55G Drum", "Bulk'],
+    "LD Extended Life 2-EH OAT": ["55G Drum", "Bulk"],
+}
 }
 
 volume_conversion = {
