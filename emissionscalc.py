@@ -140,7 +140,6 @@ product_volumes = {
     "LD/HD Extended Service Interval HOAT": ["55G Drum", "Bulk'],
     "LD Extended Life 2-EH OAT": ["55G Drum", "Bulk"],
 }
-}
 
 volume_conversion = {
     "12x1 Qt. Case": 3,
